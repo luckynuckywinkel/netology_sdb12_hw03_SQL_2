@@ -10,7 +10,32 @@
 
 ### Решение:  
 
-- Все SQL-запросы будут производиться в загруженном дампе базы **sakila** из предыдущего задания. Как и что я создавал, можете посмотреть  <code>[тут](https://github.com/luckynuckywinkel/netology_sdb12_hw03_SQL_1 "sdb12_hw03_SQL_1")</code>
+- Все SQL-запросы будут производиться в загруженном дампе базы **sakila** из предыдущего задания. Как и что я создавал, можете посмотреть  <code>[тут](https://github.com/luckynuckywinkel/netology_sdb12_hw03_SQL_1 "sdb12_hw03_SQL_1")</code>.
+
+- Итак, составим запрос, удовлетворяющий условиям нашей задачи:
+
+```
+mysql> SELECT
+    ->     CONCAT(staff.first_name, ' ', staff.last_name) AS manager_name,
+    ->     city.city AS store_city,
+    ->     COUNT(customer.customer_id) AS how_many_customers
+    -> FROM
+    ->     store
+    ->     JOIN staff ON store.manager_staff_id = staff.staff_id
+    ->     JOIN address ON store.address_id = address.address_id
+    ->     JOIN city ON address.city_id = city.city_id
+    ->     JOIN customer ON store.store_id = customer.store_id
+    -> GROUP BY
+    ->     store.store_id
+    -> HAVING
+    ->     COUNT(customer.customer_id) > 300;
++---------------+------------+----------------+
+| manager_name | store_city | how_many_customers |
++---------------+------------+----------------+
+| Mike Hillyer  | Lethbridge |            326 |
++---------------+------------+----------------+
+1 row in set (0.02 sec)
+```
 
 ---
 
