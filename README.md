@@ -10,7 +10,7 @@
 
 ### Решение:  
 
-- Все SQL-запросы будут производиться в загруженном дампе базы **sakila** из предыдущего задания. Как и что я создавал, можете посмотреть  <code>[тут](https://github.com/luckynuckywinkel/netology_sdb12_hw06_SQL_rep-scale_vol1 "sdb12_hw03_SQL_1")</code>
+- Все SQL-запросы будут производиться в загруженном дампе базы **sakila** из предыдущего задания. Как и что я создавал, можете посмотреть  <code>[тут] (https://github.com/luckynuckywinkel/netology_sdb12_hw03_SQL_1 "sdb12_hw03_SQL_1")</code>
 
 ---
 
